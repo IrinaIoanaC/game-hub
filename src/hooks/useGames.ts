@@ -2,10 +2,20 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
+//Interface for each Platform
+//Add slug property for Platforms (response property)
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+//Add parent_platforms
 export interface Game {
   id: number;
   name: string;
   background_image: string; //every Game has a background image -> src for GameCard
+  parent_platforms: { platform: Platform }[];
 }
 
 interface FetchGamesResponse {
