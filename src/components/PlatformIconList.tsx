@@ -1,3 +1,4 @@
+//We import Icons for Platforms from different react libraries
 import {
   FaWindows,
   FaPlaystation,

@@ -11,11 +11,13 @@ export interface Platform {
 }
 
 //Add parent_platforms
+//13-add metacritic property
 export interface Game {
   id: number;
   name: string;
   background_image: string; //every Game has a background image -> src for GameCard
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 interface FetchGamesResponse {
