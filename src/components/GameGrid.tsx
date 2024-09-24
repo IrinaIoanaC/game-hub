@@ -2,11 +2,13 @@ import { SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 // We replace <ul> with <SimpleGrid>
 // We replace <li> with <GameCard>
 // We replace the number of columns ={3} with a responsive layout, with an object
 // We need a padding, because the GameCard is too close to the edge
+// 16-Wrap GameCard and GameCardSkeleton into GameCardContainer
 
 const GameGrid = () => {
   const { games, error, isLoading } = useGames();
@@ -20,9 +22,15 @@ const GameGrid = () => {
         spacing={10}
       >
         {isLoading &&
-          skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
+          skeletons.map((skeleton) => (
+            <GameCardContainer>
+              <GameCardSkeleton key={skeleton} />
+            </GameCardContainer>
+          ))}
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCardContainer>
+            <GameCard key={game.id} game={game} />
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>
