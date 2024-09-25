@@ -1,6 +1,9 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
+
+//17-Replace Aside with GenreList component
 
 function App() {
   return (
@@ -16,7 +19,9 @@ function App() {
 
       {/* Show only above the lg breakpoint */}
       <Show above="lg">
-        <GridItem area="aside">Aside</GridItem>
+        <GridItem area="aside">
+          <GenreList />
+        </GridItem>
       </Show>
 
       <GridItem area="main">
