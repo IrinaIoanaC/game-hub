@@ -21,7 +21,7 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
 }
-
+//27-ordering
 const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
@@ -29,6 +29,7 @@ const useGames = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
       },
     },
     [gameQuery]
