@@ -17,11 +17,13 @@ import SortSelector from "./components/SortSelector";
 //29- fix the issue by replacing HStack with Flex component (GridItem)
 // Flex doesn't have spacing -> remove it
 // For adding space between the 2 selectors => wrap one of the selector inside a box and give the margin property to this box
+//30 - add the searchText property from SearchInput -> NavBar (bcs we do not have the SearchInput child here)
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        />
       </GridItem>
 
       {/* Show only above the lg breakpoint */}
