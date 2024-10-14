@@ -14,12 +14,16 @@ export interface Platform {
 
 //Add parent_platforms
 //13-add metacritic property
+
+//35-add rating_top
+
 export interface Game {
   id: number;
   name: string;
   background_image: string; //every Game has a background image -> src for GameCard
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
 }
 //27-ordering
 //31- add search parameter
