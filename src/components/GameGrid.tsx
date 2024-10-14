@@ -14,6 +14,7 @@ import { GameQuery } from "../App";
 // 19-replace the spacing og SimpleGrid of 10 to 3
 // 21-add Props
 // 23-add selectedPlatform to interface and useGames
+//
 
 interface Props {
   gameQuery: GameQuery;
@@ -26,9 +27,9 @@ const GameGrid = ({ gameQuery }: Props) => {
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         padding="10px"
-        spacing={3}
+        spacing={6}
       >
         {isLoading &&
           skeletons.map((skeleton) => (

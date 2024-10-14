@@ -19,18 +19,22 @@ interface Props {
 //Firstly, we render <Text> of Platforms for each game
 //To return the icons, we need to instal npm i react-icons@4.7.1
 //13 add CriticScore component with score={game.metacritic}
+
+//34- move the Heading after HStack
+//add marginBottom to the HStack
+
 const GameCard = ({ game }: Props) => {
   return (
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" marginBottom={3}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="2xl">{game.name}</Heading>
       </CardBody>
     </Card>
   );
